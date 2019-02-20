@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="signupColor">#066e8a</color>
+    <color name="lightgrayline">#ededed</color>
+    <color name="deeppurpple">#7c4dff</color>
+    <color name="materialyellow">#ffb300</color>
+    <color name="materiaalgreen">#00bfa5</color>
+    <color name="pinkaccent">#ff4081</color>
+    <color name="black">#000000</color>
+    <color name="owlblue">#0336FF</color>
+</resources>

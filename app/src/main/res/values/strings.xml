@@ -1,3 +1,45 @@
 <resources>
     <string name="app_name">Sport_Hub</string>
+    <string-array name="Select_Sport">
+
+        <item>Cricket</item>
+        <item>Football</item>
+    </string-array>
+
+    <string-array name="Select_Role">
+        <item>Captain</item>
+        <item>Batsman</item>
+        <item>Fast bowler</item>
+        <item>Spinner</item>
+        <item>Medium fast</item>
+        <item>Wicket Keeper/</item>
+        <item>Goal keeper</item>
+        <item>Defender/</item>
+        <item>Midfielder/</item>
+        <item>Attacker/</item>
+    </string-array>
+
+    <string-array name="Select_City">
+        <item>Islamabad</item>
+        <item>Rawalapindi</item>
+    </string-array>
+
+    <string-array name="Select_Area">
+        <item>ChakShazad</item>
+        <item>Alipur</item>
+        <item>Tarlai</item>
+    </string-array>
+
+    <string-array name="MultiSelectionSpinner">
+        <item>One</item>
+        <item>Tuesday</item>
+    </string-array>
+    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
 </resources>

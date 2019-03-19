@@ -8,7 +8,7 @@
     tools:context=".OraganizeTournament.Staistics">
 
     <EditText
-        android:id="@+id/editText8"
+        android:id="@+id/stat_teamname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -20,6 +20,7 @@
         android:ems="10"
         android:hint="Team Name"
         android:inputType="textPersonName"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -28,7 +29,7 @@
         app:layout_constraintVertical_bias="0.114" />
 
     <EditText
-        android:id="@+id/editText9"
+        android:id="@+id/stat_totalmatches"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -40,6 +41,7 @@
         android:ems="10"
         android:hint="Total Matches"
         android:inputType="textPersonName"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -48,7 +50,7 @@
         app:layout_constraintVertical_bias="0.268" />
 
     <EditText
-        android:id="@+id/editText10"
+        android:id="@+id/stat_winmatch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -60,6 +62,7 @@
         android:ems="10"
         android:hint="Match Win"
         android:inputType="textPersonName"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -68,7 +71,7 @@
         app:layout_constraintVertical_bias="0.416" />
 
     <EditText
-        android:id="@+id/editText11"
+        android:id="@+id/stat_losematch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -80,6 +83,7 @@
         android:ems="10"
         android:hint="Match Lose"
         android:inputType="textPersonName"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -88,7 +92,7 @@
         app:layout_constraintVertical_bias="0.558" />
 
     <EditText
-        android:id="@+id/editText12"
+        android:id="@+id/totalpoint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -100,6 +104,7 @@
         android:ems="10"
         android:hint="Total Points"
         android:inputType="textPersonName"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -108,7 +113,7 @@
         app:layout_constraintVertical_bias="0.716" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/stat"
         android:layout_width="116dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tritechteal.sport_hub">
 
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,22 +19,23 @@
             android:label="@string/title_activity_navigation_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <kactivity android:name=".OraganizeTournament.RegisterTeam" />
+        <activity android:name=".OraganizeTournament.RegisterTeam" />
 
-        <activity android:name=".PlayerSignUp" />
+        <activity android:name=".PlayerSignUp" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".OraganizeTournament.RegisterPlayer" />
-        <activity android:name=".OraganizeTournament.AddTournament" />
         <activity android:name=".OraganizeTournament.Staistics" />
         <activity android:name=".OraganizeTournament.TeamRequest" />
         <activity android:name=".OraganizeTournament.Tournament" />
         <activity android:name=".OraganizeTournament.OrganizeTournament" />
         <activity android:name=".MainHome.Dashboard" />
         <activity android:name=".SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".Signup" />

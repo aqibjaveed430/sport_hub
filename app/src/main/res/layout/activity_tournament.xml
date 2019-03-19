@@ -8,7 +8,7 @@
     tools:context=".OraganizeTournament.Tournament">
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/tournament_name"
         android:layout_width="398dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -20,6 +20,7 @@
         android:ems="10"
         android:hint="Tournament Name"
         android:inputType="textPersonName"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +28,7 @@
         app:layout_constraintVertical_bias="0.168" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/slct_trmnt-sport"
         android:layout_width="395dp"
         android:layout_height="49dp"
         android:layout_marginStart="8dp"
@@ -45,7 +46,7 @@
         app:layout_constraintVertical_bias="0.274" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/tournament_venue"
         android:layout_width="392dp"
         android:layout_height="51dp"
         android:layout_marginStart="8dp"
@@ -55,8 +56,9 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Venue"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -65,7 +67,7 @@
         app:layout_constraintVertical_bias="0.382" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/startdate"
         android:layout_width="396dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -75,8 +77,9 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
+        android:hint="Start Date"
         android:inputType="date"
-        android:hint="Satart Date"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -84,7 +87,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/enddate"
         android:layout_width="390dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -94,8 +97,9 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:inputType="date"
         android:hint="End Date"
+        android:inputType="date"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
@@ -104,7 +108,7 @@
         app:layout_constraintVertical_bias="0.643" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/trmnt_description"
         android:layout_width="404dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -116,6 +120,7 @@
         android:ems="10"
         android:hint="Tournament Description"
         android:inputType="textMultiLine"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -124,22 +129,24 @@
         app:layout_constraintVertical_bias="0.771" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="119dp"
-        android:layout_height="59dp"
+        android:id="@+id/add_tournamentbtn"
+        android:layout_width="137dp"
+        android:layout_height="57dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/signupColor"
+        android:background="@drawable/shapelogin"
         android:text="Register"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.879" />
+        app:layout_constraintVertical_bias="0.873" />
 </android.support.constraint.ConstraintLayout>

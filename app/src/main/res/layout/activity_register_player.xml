@@ -8,9 +8,9 @@
     tools:context=".OraganizeTournament.RegisterPlayer">
 
     <EditText
-        android:id="@+id/teannametextbox"
-        android:layout_width="399dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/playername"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -18,14 +18,17 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/shapeemail"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
         android:ems="10"
         android:hint="Full Name"
         android:inputType="textPersonName"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintVertical_bias="0.011" />
 
     <Spinner
         android:id="@+id/selectcity"
@@ -82,7 +85,7 @@
         app:layout_constraintVertical_bias="0.302" />
 
     <EditText
-        android:id="@+id/editText18"
+        android:id="@+id/cellno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -90,23 +93,63 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:drawableLeft="@android:drawable/ic_menu_call"
         android:ems="10"
         android:hint="Cell Number"
+        android:background="@drawable/shapeemail"
         android:inputType="number"
+        android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.728" />
+        app:layout_constraintVertical_bias="0.781" />
 
     <Button
         android:id="@+id/register_player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Register"
-        tools:layout_editor_absoluteX="307dp"
-        tools:layout_editor_absoluteY="599dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.902" />
 
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/shapeemail"
+        android:drawableLeft="@drawable/ic_email_black_24dp"
+        android:drawablePadding="10dp"
+        android:hint="Email"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.111" />
 
 </android.support.constraint.ConstraintLayout>

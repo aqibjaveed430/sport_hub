@@ -28,7 +28,7 @@
         app:layout_constraintVertical_bias="0.168" />
 
     <Spinner
-        android:id="@+id/slct_trmnt-sport"
+        android:id="@+id/slct_trmnt_sport"
         android:layout_width="395dp"
         android:layout_height="49dp"
         android:layout_marginStart="8dp"

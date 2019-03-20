@@ -24,13 +24,13 @@ import java.util.List;
 import java.util.Map;
 
 public class PlayerSignUp extends AppCompatActivity {
-
+// spinner variables
     Spinner select_sport;
     Spinner select_city;
     Spinner select_role;
     Spinner select_area;
 
-
+//API data
     EditText pname;
     EditText phoneno;
     Spinner Sport;
@@ -190,13 +190,15 @@ public class PlayerSignUp extends AppCompatActivity {
         Sport= (Spinner) findViewById(R.id.selectsport);
         City= (Spinner) findViewById(R.id.seletcity);
         CityArea= (Spinner) findViewById(R.id.areaspinner);
-        Type= (Spinner) findViewById(R.id.SelectType);
+      //  Type= (Spinner) findViewById(R.id.SelectType);
         Mon= (CheckBox) findViewById(R.id.mondaycheckBox);
         Tue= (CheckBox) findViewById(R.id.tuesdaycheckBox);
         Wed= (CheckBox) findViewById(R.id.wednesdaycheckBox);
         Thurs= (CheckBox) findViewById(R.id.thursdaycheckBox);
         Fri= (CheckBox) findViewById(R.id.fridaycheckBox);
         Sat= (CheckBox) findViewById(R.id.saturdaycheckBox);
+        Sun=   (CheckBox) findViewById(R.id.sundaycheckBox);
+
         Register =(Button) findViewById(R.id.signuppalyer);
 
 
@@ -208,7 +210,7 @@ public class PlayerSignUp extends AppCompatActivity {
             public void onClick(View v) {
 
 
-              /*  if(Mon.isChecked())
+                if(Mon.isChecked())
                 {
                     Monday="Yes";
                 }
@@ -243,8 +245,8 @@ public class PlayerSignUp extends AppCompatActivity {
                     Sunday="Yes";
                 }
 
-*/
-                String url = "https://192.168.0.121/SportHub/api/PlayerInfo/";
+
+                String url = "http://192.168.0.121/SportHub/api/PlayerInfo/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -271,13 +273,14 @@ public class PlayerSignUp extends AppCompatActivity {
                     protected Map<String, String> getParams() {
 
 
-                        /*
+
                          Map<String, String> object = new HashMap<String, String>();
                         object.put("PlayerName",pname.getText().toString().trim());
                         object.put("PlayerPhoneNo",phoneno.getText().toString().trim());
                         object.put("Sport",Sport.getSelectedItem().toString().trim());
                         object.put("City",City.getSelectedItem().toString().trim());
-                        object.put("Type",Type.getSelectedItem().toString().trim());
+                      //  object.put("Type",Type.getSelectedItem().toString().trim());
+                        object.put("Type","Type");
                         object.put("Monday",Monday);
                         object.put("Tuesday",Tuesday);
                         object.put("Wednesday",Wednesday);
@@ -288,24 +291,8 @@ public class PlayerSignUp extends AppCompatActivity {
                         object.put("UserName",Sunday);
                         object.put("Password",Sunday);
                         return object;
-*/
 
-                        Map<String, String> object = new HashMap<String, String>();
-                        object.put("PlayerName","aa");
-                        object.put("PlayerPhoneNo","aa");
-                        object.put("Sport","aa");
-                        object.put("City","aa");
-                        object.put("Type","aa");
-                        object.put("Monday","aa");
-                        object.put("Tuesday","aa");
-                        object.put("Wednesday","aa");
-                        object.put("Thursday","aa");
-                        object.put("Friday","aa");
-                        object.put("Saturday","aa");
-                        object.put("Sunday","aa");
-                        object.put("UserName","aa");
-                        object.put("Password","aa");
-                        return object;
+
 
                   }
                 };

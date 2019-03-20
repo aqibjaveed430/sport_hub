@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.173" />
 
     <Spinner
-        android:id="@+id/selectcity"
+        android:id="@+id/selec_tcity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -68,7 +68,7 @@
         app:layout_constraintVertical_bias="0.58" />
 
     <Spinner
-        android:id="@+id/slectsport"
+        android:id="@+id/select_sport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -109,10 +109,20 @@
         android:id="@+id/registerteam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Register"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="283dp"
-        tools:layout_editor_absoluteY="598dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.926" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -33,10 +33,14 @@ public class PlayerSignUp extends AppCompatActivity {
 //API data
     EditText pname;
     EditText phoneno;
+    EditText password;
     Spinner Sport;
     Spinner City;
     Spinner CityArea;
-    Spinner Type;
+    Spinner role;
+
+
+   // Spinner Type;
 
     CheckBox Mon;
     CheckBox Tue;
@@ -186,10 +190,13 @@ public class PlayerSignUp extends AppCompatActivity {
 
 
         pname= (EditText) findViewById(R.id.playerfullname);
+        password= (EditText) findViewById(R.id.playerpassword);
         phoneno= (EditText) findViewById(R.id.plaermobileno);
         Sport= (Spinner) findViewById(R.id.selectsport);
         City= (Spinner) findViewById(R.id.seletcity);
         CityArea= (Spinner) findViewById(R.id.areaspinner);
+        role= (Spinner) findViewById(R.id.seletrole);
+
       //  Type= (Spinner) findViewById(R.id.SelectType);
         Mon= (CheckBox) findViewById(R.id.mondaycheckBox);
         Tue= (CheckBox) findViewById(R.id.tuesdaycheckBox);
@@ -198,7 +205,6 @@ public class PlayerSignUp extends AppCompatActivity {
         Fri= (CheckBox) findViewById(R.id.fridaycheckBox);
         Sat= (CheckBox) findViewById(R.id.saturdaycheckBox);
         Sun=   (CheckBox) findViewById(R.id.sundaycheckBox);
-
         Register =(Button) findViewById(R.id.signuppalyer);
 
 
@@ -280,7 +286,7 @@ public class PlayerSignUp extends AppCompatActivity {
                         object.put("Sport",Sport.getSelectedItem().toString().trim());
                         object.put("City",City.getSelectedItem().toString().trim());
                       //  object.put("Type",Type.getSelectedItem().toString().trim());
-                        object.put("Type","Type");
+                        //object.put("Type","Type");
                         object.put("Monday",Monday);
                         object.put("Tuesday",Tuesday);
                         object.put("Wednesday",Wednesday);

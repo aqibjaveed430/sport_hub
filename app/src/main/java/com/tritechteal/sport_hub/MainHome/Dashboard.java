@@ -33,7 +33,7 @@ private Button organize;
 
 
 
-        organize=(Button) findViewById(R.id.signup1);
+       // organize=(Button) findViewById(R.id.signup1);
         organize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

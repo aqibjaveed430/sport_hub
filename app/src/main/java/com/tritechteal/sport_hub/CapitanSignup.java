@@ -53,33 +53,30 @@ public class CapitanSignup extends AppCompatActivity {
 
         captan_sport = (Spinner) findViewById(R.id.slectsport);
 
-        List<String> captan_list=new ArrayList<String>();
+        List<String> captan_list = new ArrayList<String>();
         captan_list.add("Select Sport");
         captan_list.add("Cricket");
         captan_list.add("football");
 
-        ArrayAdapter<String> capitan_arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,captan_list);
+        ArrayAdapter<String> capitan_arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, captan_list);
         capitan_arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         captan_sport.setAdapter(capitan_arrayAdapter);
 
 
-        captan_sport.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
+        captan_sport.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
-            {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
                 capitan_select_sport.setSelection(i);
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView)
-            {
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
 
         });
-              // Data Get Start
+        // Data Get Start
 
 
         String url = "http://192.168.10.3/SportHub/api/RegisterCaptain/";
@@ -93,7 +90,7 @@ public class CapitanSignup extends AppCompatActivity {
                 Toast SavedToast = Toast.makeText(CapitanSignup.this, response.toString(), Toast.LENGTH_SHORT);
                 SavedToast.show();
 
-                Intent intent=new Intent(CapitanSignup.this, Signup.class);
+                Intent intent = new Intent(CapitanSignup.this, Signup.class);
                 startActivity(intent);
 
             }
@@ -109,11 +106,10 @@ public class CapitanSignup extends AppCompatActivity {
             protected Map<String, String> getParams() {
 
 
-
                 Map<String, String> object = new HashMap<String, String>();
-                object.put("CapitanUserName",captan_username.getText().toString().trim());
-                object.put("CapitanName",captan_name.getText().toString().trim());
-                object.put("CapitanPassword",captan_password.getText().toString().trim());
+                object.put("CapitanUserName", captan_username.getText().toString().trim());
+                object.put("CapitanName", captan_name.getText().toString().trim());
+                object.put("CapitanPassword", captan_password.getText().toString().trim());
                 object.put("CaptainSport", capitan_select_sport.getSelectedItem().toString().trim());
                 //  object.put("Type",Type.getSelectedItem().toString().trim());
                 //object.put("Type","Type");
@@ -121,26 +117,25 @@ public class CapitanSignup extends AppCompatActivity {
                 return object;
 
 
-
             }
         };
-        captain_user= (EditText) findViewById(R.id.username_capitan);
-        captain_name= (EditText) findViewById(R.id.capitanname);
-        captaain_pasword= (EditText) findViewById(R.id.capitan_password);
-        captain_sport= (Spinner) findViewById(R.id.captain_slectsport);
-        cpatain_register= (Button) findViewById(R.id.signup_capitn_btn);
+        captain_user = (EditText) findViewById(R.id.username_capitan);
+        captain_name = (EditText) findViewById(R.id.capitanname);
+        captaain_pasword = (EditText) findViewById(R.id.capitan_password);
+        captain_sport = (Spinner) findViewById(R.id.captain_slectsport);
+        cpatain_register = (Button) findViewById(R.id.signup_capitn_btn);
 
 
+    }}
 
-
-        cpatain_register.setOnClickListener(new View.OnClickListener() {
+       /* cpatain_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 JSONObject object = new JSONObject();
                 //    u1.UserName=UserName.getText().toString().trim();
                 //  u1.Password=Password.getText().toString().trim();
 
-                String url = "http://192.168.10.3/SportHub/api/PlayerInfo/";
+             /*   String url = "http://192.168.10.3/SportHub/api/PlayerInfo/";
                 JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
                     @Override
@@ -190,5 +185,4 @@ public class CapitanSignup extends AppCompatActivity {
                                // Data Get END
 
         }
-}
-    }}
+}*/

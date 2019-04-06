@@ -19,6 +19,7 @@ import com.tritechteal.sport_hub.AppController;
 import com.tritechteal.sport_hub.PlayerSignUp;
 import com.tritechteal.sport_hub.R;
 import com.tritechteal.sport_hub.Signup;
+import com.tritechteal.sport_hub.TeamPlayers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,11 +40,26 @@ public class RegisterTeam extends AppCompatActivity {
     EditText team_phone_no;
     Button team_register;
 
+    // Register for players button
+    Button add_player;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_team);
+
+        add_player = (Button) findViewById(R.id.register_team);
+
+        add_player.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(RegisterTeam.this, TeamPlayers.class);
+                startActivity(intent);
+            }
+        });
+
+        // END Register for player button
 
         select_team_sport = (Spinner) findViewById(R.id.select_team_sport);
 

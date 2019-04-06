@@ -13,30 +13,32 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CapitanSignup">
+        <activity android:name=".CurrentPreviousTournament"/>
+
+        <activity android:name=".TeamPlayers" />
+        <activity android:name=".CapitanSignup" />
+        <activity android:name=".MainHome.SelectLogin" />
+        <activity
+            android:name=".MainHome.NavigationDrawer"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".OraganizeTournament.RegisterTeam"/>
+
+        <activity android:name=".PlayerSignUp" />
+        <activity android:name=".OraganizeTournament.RegisterPlayer" />
+        <activity android:name=".OraganizeTournament.Staistics" />
+        <activity android:name=".OraganizeTournament.TeamRequest" />
+        <activity android:name=".OraganizeTournament.Tournament" />
+        <activity android:name=".OraganizeTournament.OrganizeTournament" />
+        <activity android:name=".MainHome.Dashboard" />
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainHome.SelectLogin" />
-        <activity
-            android:name=".MainHome.NavigationDrawer"
-            android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".OraganizeTournament.RegisterTeam" />
-        <activity android:name=".PlayerSignUp"/>
-
-        <activity android:name=".OraganizeTournament.RegisterPlayer" />
-        <activity android:name=".OraganizeTournament.Staistics" />
-        <activity android:name=".OraganizeTournament.TeamRequest" />
-        <activity android:name=".OraganizeTournament.Tournament"></activity>
-        <activity android:name=".OraganizeTournament.OrganizeTournament" />
-        <activity android:name=".MainHome.Dashboard" />
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".LoginActivity" />
-            >
         <activity android:name=".Signup" />
         <activity android:name=".ForgetPassword" />
     </application>

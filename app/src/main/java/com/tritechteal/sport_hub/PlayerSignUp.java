@@ -16,7 +16,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.tritechteal.sport_hub.MainHome.Dashboard;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -95,7 +94,7 @@ public class PlayerSignUp extends AppCompatActivity {
 
         });
 
-        select_city = (Spinner) findViewById(R.id.seletcity);
+       /* select_city = (Spinner) findViewById(R.id.seletcity);
 
         List<String> select_city_list=new ArrayList<String>();
         select_city_list.add("Select City");
@@ -122,7 +121,7 @@ public class PlayerSignUp extends AppCompatActivity {
 
             }
 
-        });
+        });*/
 
         select_role = (Spinner) findViewById(R.id.seletrole);
 
@@ -154,7 +153,7 @@ public class PlayerSignUp extends AppCompatActivity {
 
         });
 
-        select_area = (Spinner) findViewById(R.id.areaspinner);
+       /* select_area = (Spinner) findViewById(R.id.areaspinner);
 
         List<String> selectarea=new ArrayList<String>();
         selectarea.add("Select Area");
@@ -184,7 +183,7 @@ public class PlayerSignUp extends AppCompatActivity {
             }
 
         });
-
+*/
 
 
 
@@ -193,8 +192,8 @@ public class PlayerSignUp extends AppCompatActivity {
         password= (EditText) findViewById(R.id.playerpassword);
         phoneno= (EditText) findViewById(R.id.plaermobileno);
         Sport= (Spinner) findViewById(R.id.selectsport);
-        City= (Spinner) findViewById(R.id.seletcity);
-        CityArea= (Spinner) findViewById(R.id.areaspinner);
+       // City= (Spinner) findViewById(R.id.seletcity);
+       // CityArea= (Spinner) findViewById(R.id.areaspinner);
         role= (Spinner) findViewById(R.id.seletrole);
 
       //  Type= (Spinner) findViewById(R.id.SelectType);
@@ -252,7 +251,7 @@ public class PlayerSignUp extends AppCompatActivity {
                 }
 
 
-                String url = "http://192.168.0.121/SportHub/api/PlayerInfo/";
+                String url = "http://192.168.100.117/SportHub/api/PlayerInfo/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

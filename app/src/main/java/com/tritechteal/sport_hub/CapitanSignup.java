@@ -51,31 +51,6 @@ public class CapitanSignup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capitan_signup);
 
-        captan_sport = (Spinner) findViewById(R.id.slectsport);
-
-        List<String> captan_list = new ArrayList<String>();
-        captan_list.add("Select Sport");
-        captan_list.add("Cricket");
-        captan_list.add("football");
-
-        ArrayAdapter<String> capitan_arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, captan_list);
-        capitan_arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        captan_sport.setAdapter(capitan_arrayAdapter);
-
-
-        captan_sport.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                capitan_select_sport.setSelection(i);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-
-        });
         // Data Get Start
 
 
@@ -122,7 +97,7 @@ public class CapitanSignup extends AppCompatActivity {
         captain_user = (EditText) findViewById(R.id.username_capitan);
         captain_name = (EditText) findViewById(R.id.capitanname);
         captaain_pasword = (EditText) findViewById(R.id.capitan_password);
-        captain_sport = (Spinner) findViewById(R.id.captain_slectsport);
+     //   captain_sport = (Spinner) findViewById(R.id.captain_slectsport);
         cpatain_register = (Button) findViewById(R.id.signup_capitn_btn);
 
 

@@ -9,7 +9,7 @@
     android:padding="10dp"
     android:gravity="center"
     android:id="@+id/ll"
-tools:context=".MainHome.Dashboard">
+    tools:context=".Dashboard">
 
 
     <LinearLayout
@@ -172,6 +172,7 @@ tools:context=".MainHome.Dashboard">
 
 
     </LinearLayout>
+
 
 
 

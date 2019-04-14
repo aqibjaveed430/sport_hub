@@ -1,6 +1,5 @@
 package com.tritechteal.sport_hub;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +9,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,15 +16,10 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
-import com.tritechteal.sport_hub.MainHome.Dashboard;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
     EditText user_email;
@@ -35,15 +28,35 @@ public class LoginActivity extends AppCompatActivity {
     RadioButton team;
     RadioButton player;
     CheckBox remember_me;
-    TextView forget_password;
+    TextView password_forget;
     Button signin_button;
     Button sign_up;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Button code for Next Activity
+
+        sign_up = (Button) findViewById(R.id.signup);
+        sign_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(LoginActivity.this, SelectLogin.class);
+                startActivity(intent);
+            }
+        });
+
+        password_forget = (TextView) findViewById(R.id.forget_password);
+        password_forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(LoginActivity.this, ForgetPassword.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
         user_email= (EditText) findViewById(R.id.sigin_email);
@@ -52,10 +65,9 @@ public class LoginActivity extends AppCompatActivity {
         team= (RadioButton) findViewById(R.id.teamradioButton);
         player= (RadioButton) findViewById(R.id.PlayerradioButton);
         remember_me= (CheckBox) findViewById(R.id.remember_me);
-        forget_password= (TextView) findViewById(R.id.forget_password);
+        password_forget= (TextView) findViewById(R.id.forget_password);
         signin_button= (Button) findViewById(R.id.signin);
-        sign_up= (Button) findViewById(R.id.signup);
-
+        //sign_up= (Button) findViewById(R.id.signup);
 
 
 
@@ -66,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
             //    u1.UserName=UserName.getText().toString().trim();
               //  u1.Password=Password.getText().toString().trim();
 
-                String url = "http://192.168.10.3/SportHub/api/PlayerInfo/";
+                String url = "http://192.168.8.121/SportHub/api/PlayerInfo/";
                 JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
                     @Override
@@ -86,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                                 String Password = c.getString("Password").toString().trim();
                                 if (Username.equals(user_email.getText().toString().trim())&&Password.equals(user_password.getText().toString().trim())) {
                                     a=1;
-                                    Intent intent = new Intent(LoginActivity.this, ForgetPassword.class);
+                                    Intent intent = new Intent(LoginActivity.this, Dashboard.class);
                                     startActivity(intent);
                                     break;
                                 }

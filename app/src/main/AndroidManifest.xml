@@ -2,7 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tritechteal.sport_hub">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:name=".AppController"
@@ -13,34 +19,82 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CurrentPreviousTournament"/>
 
-        <activity android:name=".TeamPlayers" />
-        <activity android:name=".CapitanSignup" />
-        <activity android:name=".MainHome.SelectLogin" />
+        <provider
+            android:name=".provider.PlaceContentProvider"
+            android:authorities="com.tritechteal.sport_hub"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD92SL8IpnDSjyzMA9Aw9KWiVeiN7Z9IqA" />
+
+        <activity android:name=".Dashboard">
+
+        </activity>
+        <activity android:name=".UploadPhoto" >
+
+        </activity>
+        <activity android:name=".SelectLogin" >
+
+        </activity>
+        <activity android:name=".PlacePickerr" >
+
+        </activity>
+
+        <activity android:name=".CurrentPreviousTournament" >
+
+        </activity>
+        <activity android:name=".TeamPlayers" >
+
+        </activity>
+
+        <activity android:name=".CapitanSignup" >
+
+        </activity>
         <activity
             android:name=".MainHome.NavigationDrawer"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".OraganizeTournament.RegisterTeam"/>
+            android:theme="@style/AppTheme.NoActionBar" >
 
-        <activity android:name=".PlayerSignUp" />
-        <activity android:name=".OraganizeTournament.RegisterPlayer" />
-        <activity android:name=".OraganizeTournament.Staistics" />
-        <activity android:name=".OraganizeTournament.TeamRequest" />
-        <activity android:name=".OraganizeTournament.Tournament" />
-        <activity android:name=".OraganizeTournament.OrganizeTournament" />
-        <activity android:name=".MainHome.Dashboard" />
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".LoginActivity" >
+        </activity>
+        <activity android:name=".OraganizeTournament.RegisterTeam" >
+
+        </activity>
+        <activity android:name=".PlayerSignUp" >
+
+        </activity>
+        <activity android:name=".OraganizeTournament.RegisterPlayer" >
+
+        </activity>
+        <activity android:name=".OraganizeTournament.Staistics" >
+
+        </activity>
+        <activity android:name=".OraganizeTournament.TeamRequest" >
+
+        </activity>
+        <activity android:name=".OraganizeTournament.Tournament" >
+
+        </activity>
+        <activity android:name=".OraganizeTournament.OrganizeTournament" >
+
+        </activity>
+        <activity android:name=".SplashActivity" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Signup" />
-        <activity android:name=".ForgetPassword" />
+        <activity android:name=".LoginActivity" >
+
+        </activity>
+        <activity android:name=".Signup" >
+
+        </activity>
+        <activity android:name=".ForgetPassword" >
+
+        </activity>
     </application>
 
 </manifest>

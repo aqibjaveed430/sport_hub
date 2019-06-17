@@ -1,19 +1,28 @@
 package com.tritechteal.sport_hub;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,8 +75,7 @@ public class TeamPlayers extends AppCompatActivity {
     EditText player_cellno11;
     EditText player_cellno12;
 
-
-
+    String role;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +83,7 @@ public class TeamPlayers extends AppCompatActivity {
 
         // Player ONE Spinner
 
-        player_role1 = (Spinner) findViewById(R.id.team_player_role1);
+       /* player_role1 = (Spinner) findViewById(R.id.team_player_role1);
 
         List<String> player_role_list = new ArrayList<String>();
         player_role_list.add("Select Role");
@@ -424,12 +432,12 @@ public class TeamPlayers extends AppCompatActivity {
 
             }
 
-        });
+        });*/
 
 
         // API Post Data
 
-        String url = "http://192.168.0.103/SportHub/api/TeamPlayer/";
+       /* String url = "http://192.168.100.128/SportHub/api/TeamPlayer/";
         StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -510,13 +518,127 @@ public class TeamPlayers extends AppCompatActivity {
                 object.put("Saturday",Saturday);
                 object.put("Sunday",Sunday);
                 object.put("UserName",Sunday);
-                object.put("Password",Sunday);*/
+                object.put("Password",Sunday);
                 return object;
 
 
             }
         };
-        AppController.getInstance().addToRequestQueue(MyStringRequest, "");
+        AppController.getInstance().addToRequestQueue(MyStringRequest, "");*/
+
+
+
+       //Spiner Code
+
+
+        Spinner spinner1 = (Spinner) findViewById(R.id.team_player_role1);
+        Spinner spinner2 = (Spinner) findViewById(R.id.team_player_role2);
+        Spinner spinner3 = (Spinner) findViewById(R.id.team_player_role3);
+        Spinner spinner4 = (Spinner) findViewById(R.id.team_player_role4);
+        Spinner spinner5 = (Spinner) findViewById(R.id.team_player_role5);
+        Spinner spinner6= (Spinner) findViewById(R.id.team_player_role6);
+        Spinner spinner7 = (Spinner) findViewById(R.id.team_player_role7);
+        Spinner spinner8 = (Spinner) findViewById(R.id.team_player_role8);
+        Spinner spinner9 = (Spinner) findViewById(R.id.team_player_role9);
+        Spinner spinner10= (Spinner) findViewById(R.id.team_player_role10);
+        Spinner spinner11= (Spinner) findViewById(R.id.team_player_role11);
+        Spinner spinner12 = (Spinner) findViewById(R.id.team_player_role12);
+
+        // (2) create a simple static list of strings
+        final List<String> spinnerArray = new ArrayList<>();
+        spinnerArray.add("Select Sport");
+
+
+        //Get Data
+
+
+        String urll = "http://192.168.0.7/SportHub/api/PlayerRole/";
+        JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+                Log.d("apicallres", response.toString());
+
+                try {
+
+                    int a = 0;
+                    for (int i = 0; i < response.length(); i++) {
+                        a = 1;
+                        JSONObject c = response.getJSONObject(i);
+                        if (Logic.sports.equals(c.getString("SportId").toString().trim())){
+                            spinnerArray.add(c.getString("RoleName").toString().trim());
+                        }
+                    }
+
+
+                    if (a == 0) {
+                        Toast errorToast = Toast.makeText(TeamPlayers.this, "No Data Found ", Toast.LENGTH_SHORT);
+                        errorToast.show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast errorToast = Toast.makeText(TeamPlayers.this, "API Not Responding Check Connection", Toast.LENGTH_SHORT);
+                errorToast.show();
+            }
+        });
+
+// Adding request to request queue
+        AppController.getInstance().addToRequestQueue(jsonObjReq, "");
+
+        // (3) create an adapter from the list
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_spinner_item,
+                spinnerArray
+        ) {
+            @Override
+            public boolean isEnabled(int position) {
+                if (position == 0) {
+                    // Disable the first item from Spinner
+                    // First item will be use for hint
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+                if (position == 0) {
+                    // Set the hint text color gray
+                    tv.setTextColor(Color.GRAY);
+                } else {
+                    tv.setTextColor(Color.BLACK);
+                }
+                return view;
+            }
+        };
+
+
+//adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+// (4) set the adapter on the spinner
+        spinner1.setAdapter(adapter);
+        spinner2.setAdapter(adapter);
+        spinner3.setAdapter(adapter);
+        spinner4.setAdapter(adapter);
+        spinner5.setAdapter(adapter);
+        spinner6.setAdapter(adapter);
+        spinner7.setAdapter(adapter);
+        spinner8.setAdapter(adapter);
+        spinner9.setAdapter(adapter);
+        spinner10.setAdapter(adapter);
+        spinner11.setAdapter(adapter);
+        spinner12.setAdapter(adapter);
 
 
         }

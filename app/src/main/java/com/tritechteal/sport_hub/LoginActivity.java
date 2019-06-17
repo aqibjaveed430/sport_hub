@@ -76,9 +76,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 JSONObject object = new JSONObject();
             //    u1.UserName=UserName.getText().toString().trim();
-              //  u1.Password=Password.getText().toString().trim();
+              //u1.Password=Password.getText().toString().trim();
 
-                String url = "http://192.168.8.121/SportHub/api/PlayerInfo/";
+                String url = "http://192.168.0.7/SportHub/api/PlayerInfo/";
                 JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
                     @Override
@@ -98,6 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                                 String Password = c.getString("Password").toString().trim();
                                 if (Username.equals(user_email.getText().toString().trim())&&Password.equals(user_password.getText().toString().trim())) {
                                     a=1;
+                                    Logic.user_img = c.getString("PlayerImage").toString().trim();
                                     Intent intent = new Intent(LoginActivity.this, Dashboard.class);
                                     startActivity(intent);
                                     break;
@@ -128,10 +129,6 @@ public class LoginActivity extends AppCompatActivity {
                 AppController.getInstance().addToRequestQueue(jsonObjReq, "");
             }
         });
-
-
-
-
 
 
 

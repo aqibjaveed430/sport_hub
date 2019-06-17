@@ -23,15 +23,15 @@ public class CurrentPreviousTournament extends AppCompatActivity {
 
 
 
-        TournamentDetial.add("Electrition");
-        TournamentDetial.add("TyreService");
-        TournamentDetial.add("Radiator");
-        TournamentDetial.add("Electrition");
-        TournamentDetial.add("Radiator");
-        TournamentDetial.add("Mechanic");
-        TournamentDetial.add("TyreService");
-        TournamentDetial.add("Electrition");
-        TournamentDetial.add("Radiator");
+        TournamentDetial.add("Chak Shazad");
+        TournamentDetial.add("Stadium");
+        TournamentDetial.add("Rawalapindi");
+        TournamentDetial.add("Farash");
+        TournamentDetial.add("Alipur");
+        TournamentDetial.add("Tramri");
+        TournamentDetial.add("Isamabad");
+        TournamentDetial.add("Rawalpindi");
+        TournamentDetial.add("Alipur");
 
         DataAdapter mDataAdapter = new DataAdapter(CurrentPreviousTournament.this, TournamentName , TournamentDetial);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

@@ -203,8 +203,15 @@ public class PlacePickerr extends AppCompatActivity implements ConnectionCallbac
                 return;
             }
             String Name="";
+            String Address="";
             Name= place.getName().toString();
-
+            Address= place.getAddress().toString();
+            if(Logic.city_seletion=="Player") {
+                PlayerSignUp.City.setText(Name);
+            }
+            else if(Logic.city_seletion=="Team"){
+                RegisterTeam.select_city.setText(Name);
+            }
             String placeID = place.getId();
 
 
@@ -219,8 +226,7 @@ public class PlacePickerr extends AppCompatActivity implements ConnectionCallbac
             refreshPlacesData();
 
 
-            Intent intent = new Intent(PlacePickerr.this, PlayerSignUp.class);
-            startActivity(intent);
+            finish();
 
 
         }

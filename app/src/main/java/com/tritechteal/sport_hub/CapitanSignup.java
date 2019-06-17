@@ -54,7 +54,7 @@ public class CapitanSignup extends AppCompatActivity {
         // Data Get Start
 
 
-        String url = "http://192.168.10.3/SportHub/api/RegisterCaptain/";
+       /* String url = "http://192.168.100.128/SportHub/api/RegisterCaptain/";
         StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -62,12 +62,13 @@ public class CapitanSignup extends AppCompatActivity {
                 //The String 'response' contains the server's response.
 
 
-                Toast SavedToast = Toast.makeText(CapitanSignup.this, response.toString(), Toast.LENGTH_SHORT);
-                SavedToast.show();
 
-                Intent intent = new Intent(CapitanSignup.this, Signup.class);
+
+                Intent intent = new Intent(CapitanSignup.this,LoginActivity .class);
                 startActivity(intent);
 
+                Toast SavedToast = Toast.makeText(CapitanSignup.this, response.toString(), Toast.LENGTH_SHORT);
+                SavedToast.show();
             }
         }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
             @Override
@@ -101,7 +102,7 @@ public class CapitanSignup extends AppCompatActivity {
         cpatain_register = (Button) findViewById(R.id.signup_capitn_btn);
 
 
-    }}
+    }}*/
 
        /* cpatain_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,3 +162,6 @@ public class CapitanSignup extends AppCompatActivity {
 
         }
 }*/
+
+    }
+}

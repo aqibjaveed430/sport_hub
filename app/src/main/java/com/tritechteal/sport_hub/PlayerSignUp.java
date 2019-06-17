@@ -1,21 +1,30 @@
 package com.tritechteal.sport_hub;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,16 +34,18 @@ import java.util.Map;
 public class PlayerSignUp extends AppCompatActivity {
 // spinner variables
     Spinner select_sport;
-    Spinner select_city;
+    TextView select_city;
     Spinner select_role;
     Spinner select_area;
+    public static TextView city_name;
 
 //API data
+    EditText username;
     EditText pname;
     EditText phoneno;
     EditText password;
     Spinner Sport;
-    Spinner City;
+    public static TextView City;
     Spinner CityArea;
     Spinner role;
 
@@ -63,7 +74,16 @@ public class PlayerSignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_sign_up);
 
+        city_name = (TextView) findViewById(R.id.select_city_name);
 
+        city_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Logic.city_seletion = "Team";
+                Intent intent = new Intent(PlayerSignUp.this, PlacePickerr.class);
+                startActivity(intent);
+            }
+        });
 
         select_sport = (Spinner) findViewById(R.id.selectsport);
 
@@ -192,11 +212,23 @@ public class PlayerSignUp extends AppCompatActivity {
         password= (EditText) findViewById(R.id.playerpassword);
         phoneno= (EditText) findViewById(R.id.plaermobileno);
         Sport= (Spinner) findViewById(R.id.selectsport);
-       // City= (Spinner) findViewById(R.id.seletcity);
+       // City= (TextView) findViewById(R.id.select_city);
+        City.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Logic.city_seletion="Player";
+                Intent intent= new Intent(PlayerSignUp.this, PlacePickerr.class);
+                startActivity(intent);
+
+
+            }
+        });
        // CityArea= (Spinner) findViewById(R.id.areaspinner);
         role= (Spinner) findViewById(R.id.seletrole);
+        username= (EditText) findViewById(R.id.username);
 
-      //  Type= (Spinner) findViewById(R.id.SelectType);
+
+        //  Type= (Spinner) findViewById(R.id.SelectType);
         Mon= (CheckBox) findViewById(R.id.mondaycheckBox);
         Tue= (CheckBox) findViewById(R.id.tuesdaycheckBox);
         Wed= (CheckBox) findViewById(R.id.wednesdaycheckBox);
@@ -204,7 +236,7 @@ public class PlayerSignUp extends AppCompatActivity {
         Fri= (CheckBox) findViewById(R.id.fridaycheckBox);
         Sat= (CheckBox) findViewById(R.id.saturdaycheckBox);
         Sun=   (CheckBox) findViewById(R.id.sundaycheckBox);
-        Register =(Button) findViewById(R.id.signuppalyer);
+        Register =(Button) findViewById(R.id.nextbtn);
 
 
 
@@ -213,6 +245,7 @@ public class PlayerSignUp extends AppCompatActivity {
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
 
                 if(Mon.isChecked())
@@ -249,69 +282,273 @@ public class PlayerSignUp extends AppCompatActivity {
                 {
                     Sunday="Yes";
                 }
+                Logic.player.PlayerName=pname.getText().toString().trim();
+                Logic.player.PlayerPhoneNo=phoneno.getText().toString().trim();
+                Logic.player.Sport=Sport.getSelectedItem().toString().trim();
+                Logic.player.Role=select_role.getSelectedItem().toString().trim();
+                Logic.player.City=City.getText().toString().trim();
+                Logic.player.Monday=Monday;
+                Logic.player.Tuesday=Tuesday;
+                Logic.player.Wednesday=Wednesday;
+                Logic.player.Thursday=Thursday;
+                Logic.player.Friday=Friday;
+                Logic.player.Saturday=Saturday;
+                Logic.player.Sunday=Sunday;
+                Logic.player.UserName=username.getText().toString().trim();
+                Logic.player.Password=password.getText().toString().trim();
 
-
-                String url = "http://192.168.100.117/SportHub/api/PlayerInfo/";
-                StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        //This code is executed if the server responds, whether or not the response contains data.
-                        //The String 'response' contains the server's response.
-
-
-                        Toast SavedToast = Toast.makeText(PlayerSignUp.this, response.toString(), Toast.LENGTH_SHORT);
-                        SavedToast.show();
-
-                        Intent intent=new Intent(PlayerSignUp.this, Signup.class);
-                        startActivity(intent);
-
-                    }
-                }, new Response.ErrorListener() { //Create an error listener to handle errors appropriately.
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        //This code is executed if there is an error.
-                        Toast SavedToast = Toast.makeText(PlayerSignUp.this, error.toString(), Toast.LENGTH_SHORT);
-                        SavedToast.show();
-
-                    }
-                }) {
-                    protected Map<String, String> getParams() {
+                Intent intent= new Intent(PlayerSignUp.this, UploadPhoto.class);
+                startActivity(intent);
 
 
 
-                         Map<String, String> object = new HashMap<String, String>();
-                        object.put("PlayerName",pname.getText().toString().trim());
-                        object.put("PlayerPhoneNo",phoneno.getText().toString().trim());
-                        object.put("Sport",Sport.getSelectedItem().toString().trim());
-                        object.put("City",City.getSelectedItem().toString().trim());
-                      //  object.put("Type",Type.getSelectedItem().toString().trim());
-                        //object.put("Type","Type");
-                        object.put("Monday",Monday);
-                        object.put("Tuesday",Tuesday);
-                        object.put("Wednesday",Wednesday);
-                        object.put("Thursday",Thursday);
-                        object.put("Friday",Friday);
-                        object.put("Saturday",Saturday);
-                        object.put("Sunday",Sunday);
-                        object.put("UserName",Sunday);
-                        object.put("Password",Sunday);
-                        return object;
 
 
 
-                  }
-                };
-                AppController.getInstance().addToRequestQueue(MyStringRequest, "");
+
+
+
+
             }
         });
 
+         //Spinner Code
 
 
+        Spinner spinner1 = (Spinner) findViewById(R.id.selectsport);
+
+        // (2) create a simple static list of strings
+        final List<String> spinnerArray = new ArrayList<>();
+        spinnerArray.add("Select Sport");
+
+
+        //Get Data
+
+
+        String urll = "http://192.168.0.7/SportHub/api/Sport/";
+        JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+                Log.d("apicallres", response.toString());
+
+                try {
+
+                    int a = 0;
+                    for (int i = 0; i < response.length(); i++) {
+                        a = 1;
+                        JSONObject c = response.getJSONObject(i);
+                        spinnerArray.add(c.getString("SportName").toString().trim());
+
+
+                    }
+
+                    if (a == 0) {
+                        Toast errorToast = Toast.makeText(PlayerSignUp.this, "No Data Found ", Toast.LENGTH_SHORT);
+                        errorToast.show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast errorToast = Toast.makeText(PlayerSignUp.this, "API Not Responding Check Connection", Toast.LENGTH_SHORT);
+                errorToast.show();
+            }
+        });
+
+// Adding request to request queue
+        AppController.getInstance().addToRequestQueue(jsonObjReq, "");
+
+        // (3) create an adapter from the list
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_spinner_item,
+                spinnerArray
+        ) {
+            @Override
+            public boolean isEnabled(int position) {
+                if (position == 0) {
+                    // Disable the first item from Spinner
+                    // First item will be use for hint
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+                if (position == 0) {
+                    // Set the hint text color gray
+                    tv.setTextColor(Color.GRAY);
+                } else {
+                    tv.setTextColor(Color.BLACK);
+                }
+                return view;
+            }
+        };
+
+
+//adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+// (4) set the adapter on the spinner
+        spinner1.setAdapter(adapter);
+
+        // (2) create a simple static list of strings
+        final Spinner spinner2 = (Spinner) findViewById(R.id.seletrole);
+        final List<String> spinnerArray2 = new ArrayList<>();
+        spinnerArray2.add("Select Role");
+
+
+
+        //Spinner click event function
+
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, final int position, long id) {
+                String selectedItemText = (String) parent.getItemAtPosition(position);
+
+
+
+                // If user change the default selection
+                // First item is disable and it is used for hint
+                if (position > 0) {
+                    // Notify the selected item text
+                    Toast.makeText
+                            (getApplicationContext(), "Selected : " + selectedItemText, Toast.LENGTH_SHORT)
+                            .show();
+
+                    if (selectedItemText.equals("Cricket")){
+                        Logic.sports="1";
+                    }
+                    else if (selectedItemText.equals("Football")){
+                        Logic.sports="2";
+                    }
+
+
+                    //Get Data
+                    spinnerArray2.clear();
+                    spinnerArray2.add("Select Role");
+                    spinner2.setSelection(0);
+
+                    String urll = "http://192.168.0.7/SportHub/api/PlayerRole/";
+                    JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
+
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            Log.d("apicallres", response.toString());
+
+                            try {
+
+                                int a = 0;
+                                String res = Integer.toString(position);
+                                for (int i = 0; i < response.length(); i++) {
+                                    a = 1;
+                                    JSONObject c = response.getJSONObject(i);
+                                    if (res.equals(c.getString("SportId").trim())){
+                                        spinnerArray2.add(c.getString("RoleName").toString().trim());
+                                    }
+                                }
+
+
+                                if (a == 0) {
+                                    Toast errorToast = Toast.makeText(PlayerSignUp.this, "No Data Found ", Toast.LENGTH_SHORT);
+                                    errorToast.show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast errorToast = Toast.makeText(PlayerSignUp.this, "API Not Responding Check Connection", Toast.LENGTH_SHORT);
+                            errorToast.show();
+                        }
+                    });
+
+// Adding request to request queue
+                    AppController.getInstance().addToRequestQueue(jsonObjReq, "");
+
+                    // (3) create an adapter from the list
+
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        ArrayAdapter<String> adapterr = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray2) {
+            @Override
+            public boolean isEnabled(int position) {
+                if (position == 0) {
+                    // Disable the first item from Spinner
+                    // First item will be use for hint
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+                if (position == 0) {
+                    // Set the hint text color gray
+                    tv.setTextColor(Color.GRAY);
+                } else {
+                    tv.setTextColor(Color.BLACK);
+                }
+                return view;
+            }
+        };
+
+
+//adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+// (4) set the adapter on the spinner
+        spinner2.setAdapter(adapterr);
+
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItemText = (String) parent.getItemAtPosition(position);
+                // If user change the default selection
+                // First item is disable and it is used for hint
+                if(position > 0){
+                    // Notify the selected item text
+                    Toast.makeText
+                            (getApplicationContext(), "Selected : " + selectedItemText, Toast.LENGTH_SHORT)
+                            .show();
+
+                   // Car=selectedItemText;
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
 
     }
 
 
-    }
+
 
 
 

@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.tritechteal.sport_hub.OraganizeTournament.RegisterTeam;
-
 public class SelectLogin extends AppCompatActivity {
 Button organizer;
 Button team;

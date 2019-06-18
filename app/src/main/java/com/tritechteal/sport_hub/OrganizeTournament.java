@@ -1,15 +1,16 @@
-package com.tritechteal.sport_hub.OraganizeTournament;
+package com.tritechteal.sport_hub;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.tritechteal.sport_hub.R;
 
-public class Staistics extends AppCompatActivity {
+public class OrganizeTournament extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_staistics);
+        setContentView(R.layout.activity_organize_tournament);
+
     }
 }

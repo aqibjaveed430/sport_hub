@@ -9,6 +9,7 @@ public class SelectLogin extends AppCompatActivity {
 Button organizer;
 Button team;
 Button player;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +19,7 @@ Button player;
         player.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(SelectLogin.this, PlayerSignUp.class);
+                Intent intent= new Intent(SelectLogin.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -27,7 +28,16 @@ Button player;
         team.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(SelectLogin.this, RegisterTeam.class);
+                Intent intent= new Intent(SelectLogin.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        organizer = (Button) findViewById(R.id.organizerbtn);
+        organizer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(SelectLogin.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

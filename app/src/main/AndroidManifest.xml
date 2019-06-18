@@ -32,15 +32,23 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD92SL8IpnDSjyzMA9Aw9KWiVeiN7Z9IqA" />
 
-        <activity android:name=".Dashboard"></activity>
-        <activity android:name=".UploadPhoto"></activity>
+        <activity android:name=".Dashboard">
+
+
+        </activity>
+        <activity android:name=".UploadPhoto">
+
+        </activity>
         <activity android:name=".SelectLogin"></activity>
         <activity android:name=".PlacePickerr"></activity>
         <activity android:name=".CurrentPreviousTournament"></activity>
         <activity android:name=".TeamPlayers">
 
         </activity>
-        <activity android:name=".CapitanSignup"></activity>
+        <activity android:name=".CapitanSignup">
+
+        </activity>
+
         <activity
             android:name=".MainHome.NavigationDrawer"
             android:label="@string/title_activity_navigation_drawer"
@@ -49,25 +57,31 @@
 
         </activity>
         <activity android:name=".PlayerSignUp">
+
+
+        </activity>
+        <activity android:name=".RegisterPlayer"></activity>
+        <activity android:name=".Staistics">
+
+        </activity>
+        <activity android:name=".TeamRequest"></activity>
+        <activity android:name=".Tournament">
+
+        </activity>
+        <activity android:name=".OrganizeTournament"></activity>
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
+        </activity>
+        <activity android:name=".LoginActivity">
 
         </activity>
-        <activity android:name=".OraganizeTournament.RegisterPlayer"></activity>
-        <activity android:name=".OraganizeTournament.Staistics"></activity>
-        <activity android:name=".OraganizeTournament.TeamRequest"></activity>
-        <activity android:name=".OraganizeTournament.Tournament"></activity>
-        <activity android:name=".OraganizeTournament.OrganizeTournament"></activity>
-        <activity android:name=".SplashActivity">
-
-        </activity>
-        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".Signup"></activity>
-        <activity android:name=".ForgetPassword"></activity>
+        <activity android:name=".ForgetPassword">
+        </activity>
     </application>
 
 </manifest>

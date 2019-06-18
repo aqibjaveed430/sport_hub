@@ -30,51 +30,32 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RegisterTeam extends AppCompatActivity {
-    //Spinner Variables
-    Spinner select_team_sport;
-
-    Spinner select_area;
-
-    // API Variables
-    EditText team_name;
-    Spinner team_sport;
-    Spinner team_city;
-    Spinner team_area;
-    EditText team_phone_no;
-    Button team_register;
-    String sport;
-   public static TextView select_city;
-
-    // Register for players button
-    Button add_player;
-
-
+public class Tournament extends AppCompatActivity {
+Spinner selct_trmnt_sport;
+Button tournament_reg_btn;
+EditText tournament_name;
+EditText venue;
+EditText start_date;
+EditText end_date;
+EditText description;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_team);
-        select_city = (TextView) findViewById(R.id.select_cityname);
+        setContentView(R.layout.activity_tournament);
 
 
-        add_player = (Button) findViewById(R.id.register_team);
-        team_sport = (Spinner) findViewById(R.id.select_team_sport);
-        select_city = (TextView) findViewById(R.id.select_cityname);
-        team_phone_no = (EditText) findViewById(R.id.team_cellno);
+        tournament_reg_btn = (Button) findViewById(R.id.add_tournament_btn);
+        tournament_name = (EditText) findViewById(R.id.tournament_name);
+        venue = (EditText) findViewById(R.id.tournament_venue);
+        start_date = (EditText) findViewById(R.id.startdate);
+        end_date = (EditText) findViewById(R.id.enddate);
+        description = (EditText) findViewById(R.id.trmnt_description);
+        selct_trmnt_sport = (Spinner) findViewById(R.id.slct_trmnt_sport);
 
-        select_city.setOnClickListener(new View.OnClickListener() {
+        tournament_reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Logic.city_seletion = "Team";
-                Intent intent = new Intent(RegisterTeam.this, PlacePickerr.class);
-                startActivity(intent);
-            }
-        });
-
-        add_player.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String url = "http://192.168.43.26/SportHub/api/RegisterTeam/";
+                String url = "http://192.168.43.26/SportHub/api/AddTournament/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -82,10 +63,10 @@ public class RegisterTeam extends AppCompatActivity {
                         //The String 'response' contains the server's response.
 
 
-                        Toast SavedToast = Toast.makeText(RegisterTeam.this, response.toString(), Toast.LENGTH_SHORT);
+                        Toast SavedToast = Toast.makeText(Tournament.this, response.toString(), Toast.LENGTH_SHORT);
                         SavedToast.show();
 
-                        Intent intent = new Intent(RegisterTeam.this, LoginActivity.class);
+                        Intent intent = new Intent(Tournament.this, CurrentPreviousTournament.class);
                         startActivity(intent);
 
                     }
@@ -93,7 +74,7 @@ public class RegisterTeam extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         //This code is executed if there is an error.
-                        Toast SavedToast = Toast.makeText(RegisterTeam.this, error.toString(), Toast.LENGTH_SHORT);
+                        Toast SavedToast = Toast.makeText(Tournament.this, error.toString(), Toast.LENGTH_SHORT);
                         SavedToast.show();
 
                     }
@@ -102,34 +83,29 @@ public class RegisterTeam extends AppCompatActivity {
 
 
                         Map<String, String> object = new HashMap<String, String>();
-                        object.put("TeamName", team_name.getText().toString().trim());
-                        object.put("TeamSport", team_sport.getSelectedItem().toString().trim());
-                        object.put("CityName", team_city.getSelectedItem().toString().trim());
-                        object.put("PhoneNo", team_phone_no.getText().toString().trim());
+                        object.put("TournamentName", tournament_name.getText().toString().trim());
+                        object.put("Venue", venue.getText().toString().trim());
+                        object.put("Sport", selct_trmnt_sport.getSelectedItem().toString().trim());
+                        object.put("StartDate", start_date.getText().toString().trim());
+                        object.put("EndDate", end_date.getText().toString().trim());
+                        object.put("Description", description.getText().toString().trim());
                         return object;
 
 
                     }
                 };
                 AppController.getInstance().addToRequestQueue(MyStringRequest, "");
-
-                Intent intent = new Intent(RegisterTeam.this, TeamPlayers.class);
+                Intent intent = new Intent(Tournament.this, CurrentPreviousTournament.class);
                 startActivity(intent);
             }
         });
 
-        // END Register for player button
 
 
+        //Get Data
 
 
-
-
-
-
-        // Spinner Code
-
-        Spinner spinner1 = (Spinner) findViewById(R.id.select_team_sport);
+        Spinner spinner1 = (Spinner) findViewById(R.id.slct_trmnt_sport);
 
         // (2) create a simple static list of strings
         final List<String> spinnerArray = new ArrayList<>();
@@ -158,7 +134,7 @@ public class RegisterTeam extends AppCompatActivity {
                     }
 
                     if (a == 0) {
-                        Toast errorToast = Toast.makeText(RegisterTeam.this, "No Data Found ", Toast.LENGTH_SHORT);
+                        Toast errorToast = Toast.makeText(Tournament.this, "No Data Found ", Toast.LENGTH_SHORT);
                         errorToast.show();
                     }
                 } catch (JSONException e) {
@@ -169,7 +145,7 @@ public class RegisterTeam extends AppCompatActivity {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast errorToast = Toast.makeText(RegisterTeam.this, "API Not Responding Check Connection", Toast.LENGTH_SHORT);
+                Toast errorToast = Toast.makeText(Tournament.this, "API Not Responding Check Connection", Toast.LENGTH_SHORT);
                 errorToast.show();
             }
         });
@@ -243,11 +219,6 @@ public class RegisterTeam extends AppCompatActivity {
 
             }
         });
-                }
-            }
 
-
-
-
-
-
+    }
+}

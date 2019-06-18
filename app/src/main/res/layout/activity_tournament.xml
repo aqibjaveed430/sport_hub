@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/signupColor"
-    tools:context=".OraganizeTournament.Tournament">
+    tools:context=".Tournament">
 
     <EditText
         android:id="@+id/tournament_name"
@@ -69,12 +69,10 @@
     <EditText
         android:id="@+id/startdate"
         android:layout_width="396dp"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Start Date"

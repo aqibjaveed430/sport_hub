@@ -6,14 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.tritechteal.sport_hub.OraganizeTournament.Tournament;
-import com.tritechteal.sport_hub.OraganizeTournament.Staistics;
-
 public class Dashboard extends AppCompatActivity {
     private ImageView organize_team;
     private ImageView needed_player;
     private ImageView organize_tournament;
     private ImageView analyze_statistics;
+    private ImageView share_photo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +57,14 @@ public class Dashboard extends AppCompatActivity {
         });
 
 
-
+        share_photo = (ImageView) findViewById(R.id.photos);
+        share_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(Dashboard.this, UploadPhoto.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

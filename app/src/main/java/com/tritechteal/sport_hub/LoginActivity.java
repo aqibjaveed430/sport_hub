@@ -61,9 +61,6 @@ public class LoginActivity extends AppCompatActivity {
 
         user_email= (EditText) findViewById(R.id.sigin_email);
         user_password= (EditText) findViewById(R.id.sigin_pasword);
-        organizer= (RadioButton) findViewById(R.id.organizer_radioButton);
-        team= (RadioButton) findViewById(R.id.teamradioButton);
-        player= (RadioButton) findViewById(R.id.PlayerradioButton);
         remember_me= (CheckBox) findViewById(R.id.remember_me);
         password_forget= (TextView) findViewById(R.id.forget_password);
         signin_button= (Button) findViewById(R.id.signin);
@@ -78,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             //    u1.UserName=UserName.getText().toString().trim();
               //u1.Password=Password.getText().toString().trim();
 
-                String url = "http://192.168.0.7/SportHub/api/PlayerInfo/";
+                String url = "http://192.168.43.26/SportHub/api/PlayerInfo/";
                 JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
                     @Override
@@ -106,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
 
                             if(a==0) {
-                                Toast errorToast = Toast.makeText(LoginActivity.this, "UserName Or Password is Incorrect ", Toast.LENGTH_SHORT);
+                                Toast errorToast = Toast.makeText(LoginActivity.this, "Invalid Username or Password ", Toast.LENGTH_SHORT);
                                 errorToast.show();
                             }
                         } catch (JSONException e) {

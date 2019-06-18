@@ -1,4 +1,4 @@
-package com.tritechteal.sport_hub.OraganizeTournament;
+package com.tritechteal.sport_hub;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

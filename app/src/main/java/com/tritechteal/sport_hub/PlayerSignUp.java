@@ -325,7 +325,7 @@ public class PlayerSignUp extends AppCompatActivity {
         //Get Data
 
 
-        String urll = "http://192.168.0.7/SportHub/api/Sport/";
+        String urll = "http://192.168.43.26/SportHub/api/Sport/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
 
             @Override
@@ -438,7 +438,7 @@ public class PlayerSignUp extends AppCompatActivity {
                     spinnerArray2.add("Select Role");
                     spinner2.setSelection(0);
 
-                    String urll = "http://192.168.0.7/SportHub/api/PlayerRole/";
+                    String urll = "http://192.168.43.26/SportHub/api/PlayerRole/";
                     JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
 
                         @Override

@@ -40,7 +40,7 @@ public class NeededPlayer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_needed_player);
 
-        String url = "http://192.168.10.4/SportHub/api/PlayerInfo/";
+        String url = "http://192.168.43.26/SportHub/api/PlayerInfo/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
             @Override
@@ -64,7 +64,7 @@ public class NeededPlayer extends AppCompatActivity {
                     }
 
                     if(a==0) {
-                        Toast errorToast = Toast.makeText(NeededPlayer.this, "No Driver Found ", Toast.LENGTH_SHORT);
+                        Toast errorToast = Toast.makeText(NeededPlayer.this, "No Player Found ", Toast.LENGTH_SHORT);
                         errorToast.show();
                     }
 

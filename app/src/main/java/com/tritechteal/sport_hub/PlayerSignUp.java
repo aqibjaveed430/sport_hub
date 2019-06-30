@@ -38,6 +38,8 @@ public class PlayerSignUp extends AppCompatActivity {
     Spinner select_role;
     Spinner select_area;
     public static TextView city_name;
+    String sport;
+    String Role;
 
 //API data
     EditText username;
@@ -173,37 +175,6 @@ public class PlayerSignUp extends AppCompatActivity {
 
         });
 
-       /* select_area = (Spinner) findViewById(R.id.areaspinner);
-
-        List<String> selectarea=new ArrayList<String>();
-        selectarea.add("Select Area");
-        selectarea.add("Chak Shazad");
-        selectarea.add("Alipur");
-        selectarea.add("G/10");
-        selectarea.add("I/9");
-
-        ArrayAdapter<String> arrayAdapter_area=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,selectarea);
-        arrayAdapter_area.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        select_area.setAdapter(arrayAdapter_area);
-
-
-        select_area.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-        {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view,int i,long l)
-            {
-
-                select_role.setSelection(i);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView)
-            {
-
-            }
-
-        });
-*/
 
 
 
@@ -212,7 +183,8 @@ public class PlayerSignUp extends AppCompatActivity {
         password= (EditText) findViewById(R.id.playerpassword);
         phoneno= (EditText) findViewById(R.id.plaermobileno);
         Sport= (Spinner) findViewById(R.id.selectsport);
-       // City= (TextView) findViewById(R.id.select_city);
+
+        City= (TextView) findViewById(R.id.select_city_name);
         City.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -325,7 +297,7 @@ public class PlayerSignUp extends AppCompatActivity {
         //Get Data
 
 
-        String urll = "http://192.168.43.26/SportHub/api/Sport/";
+        String urll = "http://192.168.10.10/SportHub/api/Sport/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
 
             @Override
@@ -431,6 +403,8 @@ public class PlayerSignUp extends AppCompatActivity {
                     else if (selectedItemText.equals("Football")){
                         Logic.sports="2";
                     }
+                    sport = selectedItemText;
+
 
 
                     //Get Data
@@ -438,7 +412,7 @@ public class PlayerSignUp extends AppCompatActivity {
                     spinnerArray2.add("Select Role");
                     spinner2.setSelection(0);
 
-                    String urll = "http://192.168.43.26/SportHub/api/PlayerRole/";
+                    String urll = "http://192.168.10.10/SportHub/api/PlayerRole/";
                     JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
 
                         @Override
@@ -533,7 +507,7 @@ public class PlayerSignUp extends AppCompatActivity {
                             (getApplicationContext(), "Selected : " + selectedItemText, Toast.LENGTH_SHORT)
                             .show();
 
-                   // Car=selectedItemText;
+                   Role=selectedItemText;
 
                 }
             }

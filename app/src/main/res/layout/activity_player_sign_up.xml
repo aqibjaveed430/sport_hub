@@ -309,11 +309,12 @@
     <TextView
         android:id="@+id/select_city_name"
         android:layout_width="match_parent"
-        android:layout_height="41dp"
+        android:layout_height="62dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/shapeemail"
         android:clickable="true"
         android:text="Select Area"
         android:textAlignment="center"

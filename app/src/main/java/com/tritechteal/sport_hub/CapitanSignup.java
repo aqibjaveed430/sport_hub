@@ -58,12 +58,14 @@ public class CapitanSignup extends AppCompatActivity {
         captan_name = (EditText) findViewById(R.id.capitanname);
         captan_password = (EditText) findViewById(R.id.capitan_password);
         captan_cellno = (EditText) findViewById(R.id.cellno);
+        cpatain_register = (Button) findViewById(R.id.signup_capitn_btn);
+
 
 
         cpatain_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.43.26/SportHub/api/RegisterCaptain/";
+                String url = "http://192.168.10.10/SportHub/api/RegisterCaptain/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

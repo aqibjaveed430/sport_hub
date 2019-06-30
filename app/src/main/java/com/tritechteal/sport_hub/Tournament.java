@@ -1,5 +1,6 @@
 package com.tritechteal.sport_hub;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -10,11 +11,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.app.DatePickerDialog;
+import java.text.SimpleDateFormat;
+import android.widget.DatePicker;
+import java.util.Calendar;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -26,18 +31,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class Tournament extends AppCompatActivity {
-Spinner selct_trmnt_sport;
-Button tournament_reg_btn;
-EditText tournament_name;
-EditText venue;
-EditText start_date;
-EditText end_date;
-EditText description;
+    Spinner selct_trmnt_sport;
+    Button tournament_reg_btn;
+    EditText tournament_name;
+    EditText venue;
+    TextView start_date;
+    TextView end_date;
+    EditText description;
+    int d;
+    final Calendar myCalendar = Calendar.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,15 +57,53 @@ EditText description;
         tournament_reg_btn = (Button) findViewById(R.id.add_tournament_btn);
         tournament_name = (EditText) findViewById(R.id.tournament_name);
         venue = (EditText) findViewById(R.id.tournament_venue);
-        start_date = (EditText) findViewById(R.id.startdate);
-        end_date = (EditText) findViewById(R.id.enddate);
+        start_date = (TextView) findViewById(R.id.strtdate);
+        end_date = (TextView) findViewById(R.id.enddate);
         description = (EditText) findViewById(R.id.trmnt_description);
         selct_trmnt_sport = (Spinner) findViewById(R.id.slct_trmnt_sport);
+
+        //Date Sellection
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                // TODO Auto-generated method stub
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
+            }
+
+        };
+
+        start_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+
+                d = 1;
+
+                new DatePickerDialog(Tournament.this, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+        end_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                d = 2;
+                new DatePickerDialog(Tournament.this, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
 
         tournament_reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.43.26/SportHub/api/AddTournament/";
+                String url = "http://192.168.10.10/SportHub/api/AddTournament/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -95,11 +143,9 @@ EditText description;
                     }
                 };
                 AppController.getInstance().addToRequestQueue(MyStringRequest, "");
-                Intent intent = new Intent(Tournament.this, CurrentPreviousTournament.class);
-                startActivity(intent);
+
             }
         });
-
 
 
         //Get Data
@@ -115,7 +161,7 @@ EditText description;
         //Get Data
 
 
-        String urll = "http://192.168.43.26/SportHub/api/Sport/";
+        String urll = "http://192.168.10.10/SportHub/api/Sport/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
 
             @Override
@@ -206,14 +252,14 @@ EditText description;
                             (getApplicationContext(), "Selected : " + selectedItemText, Toast.LENGTH_SHORT)
                             .show();
 
-                    if (selectedItemText.equals("Cricket")){
-                        Logic.sports="1";
-                    }
-                    else if (selectedItemText.equals("Football")){
-                        Logic.sports="2";
+                    if (selectedItemText.equals("Cricket")) {
+                        Logic.sports = "1";
+                    } else if (selectedItemText.equals("Football")) {
+                        Logic.sports = "2";
                     }
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -221,4 +267,21 @@ EditText description;
         });
 
     }
+
+    private void updateLabel() {
+        String myFormat = "MM/dd/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        if (d == 1) {
+
+            start_date.setText(sdf.format(myCalendar.getTime()));
+        } else if (d == 2) {
+
+            end_date.setText(sdf.format(myCalendar.getTime()));
+
+        }
+
+
+    }
+
 }

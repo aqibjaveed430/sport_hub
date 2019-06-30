@@ -57,6 +57,7 @@ public class RegisterTeam extends AppCompatActivity {
         select_city = (TextView) findViewById(R.id.select_cityname);
 
 
+        team_name=(EditText) findViewById(R.id.teannametextbox);
         add_player = (Button) findViewById(R.id.register_team);
         team_sport = (Spinner) findViewById(R.id.select_team_sport);
         select_city = (TextView) findViewById(R.id.select_cityname);
@@ -74,7 +75,7 @@ public class RegisterTeam extends AppCompatActivity {
         add_player.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.43.26/SportHub/api/RegisterTeam/";
+                String url = "http://192.168.10.19/SportHub/api/RegisterTeam/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -85,7 +86,7 @@ public class RegisterTeam extends AppCompatActivity {
                         Toast SavedToast = Toast.makeText(RegisterTeam.this, response.toString(), Toast.LENGTH_SHORT);
                         SavedToast.show();
 
-                        Intent intent = new Intent(RegisterTeam.this, LoginActivity.class);
+                        Intent intent = new Intent(RegisterTeam.this, TeamPlayers.class);
                         startActivity(intent);
 
                     }
@@ -104,7 +105,7 @@ public class RegisterTeam extends AppCompatActivity {
                         Map<String, String> object = new HashMap<String, String>();
                         object.put("TeamName", team_name.getText().toString().trim());
                         object.put("TeamSport", team_sport.getSelectedItem().toString().trim());
-                        object.put("CityName", team_city.getSelectedItem().toString().trim());
+                        object.put("CityName", select_city.getText().toString().trim());
                         object.put("PhoneNo", team_phone_no.getText().toString().trim());
                         return object;
 
@@ -113,8 +114,6 @@ public class RegisterTeam extends AppCompatActivity {
                 };
                 AppController.getInstance().addToRequestQueue(MyStringRequest, "");
 
-                Intent intent = new Intent(RegisterTeam.this, TeamPlayers.class);
-                startActivity(intent);
             }
         });
 
@@ -139,7 +138,7 @@ public class RegisterTeam extends AppCompatActivity {
         //Get Data
 
 
-        String urll = "http://192.168.43.26/SportHub/api/Sport/";
+        String urll = "http://192.168.10.19/SportHub/api/Sport/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
 
             @Override

@@ -45,6 +45,8 @@ public class TeamPlayers extends AppCompatActivity {
     Spinner player_role12;
 
 
+
+    String TeamID;
     // INSERT DATA Player NAMES
 
     EditText player_name1;
@@ -110,12 +112,76 @@ public class TeamPlayers extends AppCompatActivity {
         player_cellno10 = (EditText) findViewById(R.id.CellNo_Player10);
         player_cellno11 = (EditText) findViewById(R.id.CellNo_Player11);
         player_cellno12 = (EditText) findViewById(R.id.CellNo_Player12);
+        team_reg = (Button) findViewById(R.id.Team_Register_Btn);
 
 
+//Spinner
+
+        final Spinner spinner1 = (Spinner) findViewById(R.id.team_player_role1);
+        final  Spinner spinner2 = (Spinner) findViewById(R.id.team_player_role2);
+        final  Spinner spinner3 = (Spinner) findViewById(R.id.team_player_role3);
+        final Spinner spinner4 = (Spinner) findViewById(R.id.team_player_role4);
+        final Spinner spinner5 = (Spinner) findViewById(R.id.team_player_role5);
+        final  Spinner spinner6= (Spinner) findViewById(R.id.team_player_role6);
+        final Spinner spinner7 = (Spinner) findViewById(R.id.team_player_role7);
+        final Spinner spinner8 = (Spinner) findViewById(R.id.team_player_role8);
+        final Spinner spinner9 = (Spinner) findViewById(R.id.team_player_role9);
+        final Spinner spinner10= (Spinner) findViewById(R.id.team_player_role10);
+        final Spinner spinner11= (Spinner) findViewById(R.id.team_player_role11);
+        final Spinner spinner12 = (Spinner) findViewById(R.id.team_player_role12);
+
+
+
+        //TeamId get
+
+
+
+        String urlll = "http://192.168.10.10/SportHub/api/RegisterTeam/";
+        JsonArrayRequest jsonObjReq2 = new JsonArrayRequest(Request.Method.GET, urlll, null, new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+                Log.d("apicallres", response.toString());
+
+                try {
+
+                        JSONObject c = response.getJSONObject(response.length()-1);
+                        TeamID=c.getString("TeamId").toString().trim();
+
+
+
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast errorToast = Toast.makeText(TeamPlayers.this, "API Not Responding Check Connection", Toast.LENGTH_SHORT);
+                errorToast.show();
+            }
+        });
+
+// Adding request to request queue
+        AppController.getInstance().addToRequestQueue(jsonObjReq2, "");
+
+
+
+
+
+
+
+
+
+        //post///////
         team_reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.43.26/SportHub/api/TeamPlayer/";
+                String url = "http://192.168.10.10/SportHub/api/TeamPlayer/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -126,7 +192,7 @@ public class TeamPlayers extends AppCompatActivity {
                         Toast SavedToast = Toast.makeText(TeamPlayers.this, response.toString(), Toast.LENGTH_SHORT);
                         SavedToast.show();
 
-                        Intent intent = new Intent(TeamPlayers.this, CurrentPreviousTournament.class);
+                        Intent intent = new Intent(TeamPlayers.this, Dashboard.class);
                         startActivity(intent);
 
                     }
@@ -168,32 +234,37 @@ public class TeamPlayers extends AppCompatActivity {
                         object.put("PlayerCellNo10", player_cellno10.getText().toString().trim());
                         object.put("PlayerCellNo11", player_cellno11.getText().toString().trim());
                         object.put("PlayerCellNo12", player_cellno12.getText().toString().trim());
+
+
+
+                        object.put("PlayerRole1",spinner1 .getSelectedItem().toString().trim());
+                        object.put("PlayerRole2", spinner2 .getSelectedItem().toString().trim());
+                        object.put("PlayerRole3", spinner3 .getSelectedItem().toString().trim());
+                        object.put("PlayerRole4", spinner4 .getSelectedItem().toString().trim());
+                        object.put("PlayerRole5", spinner5 .getSelectedItem().toString().trim());
+                        object.put("PlayerRole6", spinner6 .getSelectedItem().toString().trim());
+                        object.put("PlayerRole7", spinner7 .getSelectedItem().toString().trim());
+                        object.put("PlayerRole8", spinner8 .getSelectedItem().toString().trim());
+                        object.put("PlayerRole9", spinner9.getSelectedItem().toString().trim());
+                        object.put("PlayerRole10", spinner10 .getSelectedItem().toString().trim());
+                        object.put("PlayerRole11", spinner11 .getSelectedItem().toString().trim());
+                        object.put("PlayerRole12", spinner12 .getSelectedItem().toString().trim());
+                        object.put("TeamId", TeamID);
+
+
                         return object;
 
 
                     }
                 };
                 AppController.getInstance().addToRequestQueue(MyStringRequest, "");
-                Intent intent = new Intent(TeamPlayers.this, CurrentPreviousTournament.class);
-                startActivity(intent);
+
             }
         });
 
        //Spiner Code
 
 
-        Spinner spinner1 = (Spinner) findViewById(R.id.team_player_role1);
-        Spinner spinner2 = (Spinner) findViewById(R.id.team_player_role2);
-        Spinner spinner3 = (Spinner) findViewById(R.id.team_player_role3);
-        Spinner spinner4 = (Spinner) findViewById(R.id.team_player_role4);
-        Spinner spinner5 = (Spinner) findViewById(R.id.team_player_role5);
-        Spinner spinner6= (Spinner) findViewById(R.id.team_player_role6);
-        Spinner spinner7 = (Spinner) findViewById(R.id.team_player_role7);
-        Spinner spinner8 = (Spinner) findViewById(R.id.team_player_role8);
-        Spinner spinner9 = (Spinner) findViewById(R.id.team_player_role9);
-        Spinner spinner10= (Spinner) findViewById(R.id.team_player_role10);
-        Spinner spinner11= (Spinner) findViewById(R.id.team_player_role11);
-        Spinner spinner12 = (Spinner) findViewById(R.id.team_player_role12);
 
         // (2) create a simple static list of strings
         final List<String> spinnerArray = new ArrayList<>();
@@ -203,7 +274,7 @@ public class TeamPlayers extends AppCompatActivity {
         //Get Data
 
 
-        String urll = "http://192.168.43.26/SportHub/api/PlayerRole/";
+        String urll = "http://192.168.10.10/SportHub/api/PlayerRole/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
 
             @Override

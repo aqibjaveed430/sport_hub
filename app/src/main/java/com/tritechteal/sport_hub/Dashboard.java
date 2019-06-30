@@ -12,6 +12,8 @@ public class Dashboard extends AppCompatActivity {
     private ImageView organize_tournament;
     private ImageView analyze_statistics;
     private ImageView share_photo;
+    private ImageView tournamenmt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,7 @@ public class Dashboard extends AppCompatActivity {
         analyze_statistics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(Dashboard.this, Staistics.class);
+                Intent intent= new Intent(Dashboard.this, DisplayTeam.class);
                 startActivity(intent);
             }
         });
@@ -62,6 +64,15 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(Dashboard.this, UploadPhoto.class);
+                startActivity(intent);
+            }
+        });
+
+        tournamenmt = (ImageView) findViewById(R.id.tournament);
+        tournamenmt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(Dashboard.this, CurrentPreviousTournament.class);
                 startActivity(intent);
             }
         });

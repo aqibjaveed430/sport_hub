@@ -17,7 +17,7 @@
 
 
         <TextView
-            android:id="@+id/TournamentName"
+            android:id="@+id/TeamName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18dp"
@@ -28,7 +28,7 @@
             />
 
         <TextView
-            android:id="@+id/Venue"
+            android:id="@+id/TeamSport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -39,7 +39,7 @@
 
 
         <TextView
-            android:id="@+id/Sport"
+            android:id="@+id/CityName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -50,7 +50,7 @@
 
 
         <TextView
-            android:id="@+id/StartDate"
+            android:id="@+id/PhoneNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -59,24 +59,7 @@
 
             />
 
-        <TextView
-            android:id="@+id/EndDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textColor="@color/colorPrimary"
-            android:textSize="15dp"
 
-            />
-        <TextView
-            android:id="@+id/Description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textColor="@color/colorPrimary"
-            android:textSize="15dp"
-
-            />
 
 
 

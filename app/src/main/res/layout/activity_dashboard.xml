@@ -114,7 +114,7 @@
                     android:id="@+id/analyze_statistics"
                     android:layout_width="164dp"
                     android:layout_height="164dp"
-                    android:background="@drawable/analyze"
+                    android:background="@drawable/displayteam"
                     android:padding="10dp" />
 
 
@@ -141,12 +141,12 @@
             android:foreground="?android:attr/selectableItemBackground">
 
             <ImageView
-                android:id="@+id/Rating"
-                android:layout_width="160dp"
-                android:layout_height="164dp"
+                android:id="@+id/tournament"
+                android:layout_width="140dp"
+                android:layout_height="110dp"
                 android:layout_marginLeft="-5dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/rate"
+                android:background="@drawable/trnment"
                 android:padding="10dp" />
 
 

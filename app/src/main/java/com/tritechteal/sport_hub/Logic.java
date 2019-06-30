@@ -1,5 +1,7 @@
 package com.tritechteal.sport_hub;
 
+import java.util.ArrayList;
+
 public class Logic {
     public static class Player
     {
@@ -21,6 +23,10 @@ public class Logic {
         public String Role;
 
     }
+    public static int position;
+    public static String TeamName;
+
+    public static ArrayList<String> TeamId = new ArrayList<>();
     public static Player player=new Player();
     public static String user_img;
     public static String city_seletion;

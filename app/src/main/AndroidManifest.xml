@@ -19,9 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NeededPlayer">
+        <activity android:name=".DisplayTeam">
 
         </activity>
+        <activity android:name=".TeamDisplay" />
+        <activity android:name=".Schedule" />
+        <activity android:name=".NeededPlayer" />
 
         <provider
             android:name=".provider.PlaceContentProvider"
@@ -32,56 +35,37 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD92SL8IpnDSjyzMA9Aw9KWiVeiN7Z9IqA" />
 
-        <activity android:name=".Dashboard">
-
-
-        </activity>
-        <activity android:name=".UploadPhoto">
-
-        </activity>
-        <activity android:name=".SelectLogin"></activity>
-        <activity android:name=".PlacePickerr"></activity>
-        <activity android:name=".CurrentPreviousTournament"></activity>
-        <activity android:name=".TeamPlayers">
-
-        </activity>
-        <activity android:name=".CapitanSignup">
-
-        </activity>
-
-        <activity
-            android:name=".MainHome.NavigationDrawer"
-            android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".RegisterTeam">
-
-        </activity>
-        <activity android:name=".PlayerSignUp">
-
-
-        </activity>
-        <activity android:name=".RegisterPlayer"></activity>
-        <activity android:name=".Staistics">
-
-        </activity>
-        <activity android:name=".TeamRequest"></activity>
-        <activity android:name=".Tournament">
-
-        </activity>
-        <activity android:name=".OrganizeTournament"></activity>
-        <activity android:name=".SplashActivity">
+        <activity android:name=".Dashboard" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".UploadPhoto" />
+        <activity android:name=".SelectLogin" />
+        <activity android:name=".PlacePickerr" />
+        <activity android:name=".CurrentPreviousTournament" />
+        <activity android:name=".TeamPlayers" />
+        <activity android:name=".CapitanSignup" />
+        <activity
+            android:name=".MainHome.NavigationDrawer"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".RegisterTeam">
+
 
         </activity>
-        <activity android:name=".Signup"></activity>
-        <activity android:name=".ForgetPassword">
-        </activity>
+        <activity android:name=".PlayerSignUp" />
+        <activity android:name=".RegisterPlayer" />
+        <activity android:name=".Staistics" />
+        <activity android:name=".TeamRequest" />
+        <activity android:name=".Tournament" />
+        <activity android:name=".OrganizeTournament" />
+        <activity android:name=".SplashActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".Signup" />
+        <activity android:name=".ForgetPassword" />
     </application>
 
 </manifest>

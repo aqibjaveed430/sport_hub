@@ -8,6 +8,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/act_recyclerviewTeamDisplay"
+        android:background="@color/signupColor"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

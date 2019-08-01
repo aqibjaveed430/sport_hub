@@ -44,7 +44,7 @@ public class CurrentPreviousTournament extends AppCompatActivity {
         //mRecyclerView.setAdapter(mDataAdapter);
 
         //Get Code
-        String url = "http://192.168.10.10/SportHub/api/AddTournament/";
+        String url = "http://192.168.10.14/SportHub/api/AddTournament/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
             @Override

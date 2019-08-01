@@ -103,7 +103,7 @@ public class Tournament extends AppCompatActivity {
         tournament_reg_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.10.10/SportHub/api/AddTournament/";
+                String url = "http://192.168.10.14/SportHub/api/AddTournament/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -161,7 +161,7 @@ public class Tournament extends AppCompatActivity {
         //Get Data
 
 
-        String urll = "http://192.168.10.10/SportHub/api/Sport/";
+        String urll = "http://192.168.10.14/SportHub/api/Sport/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
 
             @Override

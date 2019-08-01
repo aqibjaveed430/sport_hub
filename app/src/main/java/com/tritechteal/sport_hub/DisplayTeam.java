@@ -40,7 +40,7 @@ public class DisplayTeam extends AppCompatActivity {
 
 
         //Get Code
-        String url = "http://192.168.10.10/SportHub/api/RegisterTeam/";
+        String url = "http://192.168.10.14/SportHub/api/RegisterTeam/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
             @Override

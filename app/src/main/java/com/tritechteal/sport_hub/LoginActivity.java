@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             //    u1.UserName=UserName.getText().toString().trim();
               //u1.Password=Password.getText().toString().trim();
 
-                String url = "http://192.168.10.10/SportHub/api/PlayerInfo/";
+                String url = "http://192.168.10.14/SportHub/api/PlayerInfo/";
                 JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
                     @Override

@@ -93,7 +93,7 @@ public class TeamDisplay extends AppCompatActivity {
 
         //Get Data Code
 
-        String url = "http://192.168.10.10/SportHub/api/TeamPlayer/";
+        String url = "http://192.168.10.14/SportHub/api/TeamPlayer/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
 
             @Override

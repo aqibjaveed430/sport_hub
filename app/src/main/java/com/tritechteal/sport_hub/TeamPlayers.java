@@ -47,6 +47,8 @@ public class TeamPlayers extends AppCompatActivity {
 
 
     String TeamID;
+
+
     // INSERT DATA Player NAMES
 
     EditText player_name1;
@@ -181,7 +183,7 @@ public class TeamPlayers extends AppCompatActivity {
         team_reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.10.10/SportHub/api/TeamPlayer/";
+                String url = "http://192.168.10.14/SportHub/api/TeamPlayer/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    >
 
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="385dp"
         android:layout_height="641dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/signupColor">
 
 
         <TextView

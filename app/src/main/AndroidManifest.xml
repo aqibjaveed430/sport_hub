@@ -34,14 +34,19 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD92SL8IpnDSjyzMA9Aw9KWiVeiN7Z9IqA" />
+        <activity android:name=".SplashActivity" >
 
-        <activity android:name=".Dashboard" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".LoginActivity"
+            android:label="Login"/>
+
+        <activity android:name=".Dashboard"
+            android:label="Dashboard"/>
         <activity android:name=".UploadPhoto" />
         <activity android:name=".SelectLogin" />
         <activity android:name=".PlacePickerr" />
@@ -62,8 +67,8 @@
         <activity android:name=".TeamRequest" />
         <activity android:name=".Tournament" />
         <activity android:name=".OrganizeTournament" />
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".LoginActivity" />
+
+
         <activity android:name=".Signup" />
         <activity android:name=".ForgetPassword" />
     </application>

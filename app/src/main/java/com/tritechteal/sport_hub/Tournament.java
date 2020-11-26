@@ -161,7 +161,7 @@ public class Tournament extends AppCompatActivity {
         //Get Data
 
 
-        String urll = "http://192.168.10.14/SportHub/api/Sport/";
+        String urll = "http://192.168.10.3/SportHub/api/Sport/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
 
             @Override

@@ -40,7 +40,7 @@ Button submit;
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.10.14/SportHub/api/TeamMatchStats/";
+                String url = "http://192.168.10.3/SportHub/api/TeamMatchStats/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

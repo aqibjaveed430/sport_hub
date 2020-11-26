@@ -138,7 +138,7 @@ public class TeamPlayers extends AppCompatActivity {
 
 
 
-        String urlll = "http://192.168.10.10/SportHub/api/RegisterTeam/";
+        String urlll = "http://192.168.10.3/SportHub/api/RegisterTeam/";
         JsonArrayRequest jsonObjReq2 = new JsonArrayRequest(Request.Method.GET, urlll, null, new Response.Listener<JSONArray>() {
 
             @Override
@@ -183,7 +183,7 @@ public class TeamPlayers extends AppCompatActivity {
         team_reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.10.14/SportHub/api/TeamPlayer/";
+                String url = "http://192.168.10.3/SportHub/api/TeamPlayer/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -276,7 +276,7 @@ public class TeamPlayers extends AppCompatActivity {
         //Get Data
 
 
-        String urll = "http://192.168.10.10/SportHub/api/PlayerRole/";
+        String urll = "http://192.168.10.3/SportHub/api/PlayerRole/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
 
             @Override

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class ForgetPassword extends AppCompatActivity {
     private Button forget;
@@ -19,6 +20,7 @@ public class ForgetPassword extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(ForgetPassword.this, LoginActivity.class);
+                Toast.makeText(ForgetPassword.this, "Password send on your mail successfully", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });

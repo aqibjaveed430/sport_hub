@@ -65,7 +65,7 @@ public class CapitanSignup extends AppCompatActivity {
         cpatain_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.10.14/SportHub/api/RegisterCaptain/";
+                String url = "http://192.168.10.174/SportHub/api/RegisterCaptain/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

@@ -75,7 +75,7 @@ public class RegisterTeam extends AppCompatActivity {
         add_player.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String url = "http://192.168.10.14/SportHub/api/RegisterTeam/";
+                String url = "http://192.168.10.3/SportHub/api/RegisterTeam/";
                 StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -138,7 +138,7 @@ public class RegisterTeam extends AppCompatActivity {
         //Get Data
 
 
-        String urll = "http://192.168.10.14/SportHub/api/Sport/";
+        String urll = "http://192.168.10.3/SportHub/api/Sport/";
         JsonArrayRequest jsonObjReq = new JsonArrayRequest(Request.Method.GET, urll, null, new Response.Listener<JSONArray>() {
 
             @Override

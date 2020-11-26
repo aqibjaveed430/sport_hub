@@ -19,12 +19,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DisplayTeam">
+        <activity android:name=".DisplayTeam"
+            android:label="Team"/>
 
-        </activity>
-        <activity android:name=".TeamDisplay" />
-        <activity android:name=".Schedule" />
-        <activity android:name=".NeededPlayer" />
+        <activity android:name=".TeamDisplay"
+            android:label="Team"/>
+        <activity android:name=".Schedule"
+            android:label="Match Schedule"/>
+        <activity android:name=".NeededPlayer"
+            android:label="Player You Need"/>
 
         <provider
             android:name=".provider.PlaceContentProvider"
@@ -47,30 +50,40 @@
 
         <activity android:name=".Dashboard"
             android:label="Dashboard"/>
-        <activity android:name=".UploadPhoto" />
-        <activity android:name=".SelectLogin" />
-        <activity android:name=".PlacePickerr" />
+        <activity android:name=".UploadPhoto"
+            android:label="Upload Photo"/>
+        <activity android:name=".SelectLogin"
+            android:label="Select Login"/>
+        <activity android:name=".PlacePickerr"
+            android:label="Select Palce"/>
         <activity android:name=".CurrentPreviousTournament" />
-        <activity android:name=".TeamPlayers" />
-        <activity android:name=".CapitanSignup" />
+        <activity android:name=".TeamPlayers"
+            android:label="Team Palyers"/>
+        <activity android:name=".CapitanSignup"
+            android:label="Capitan Signup"/>
         <activity
             android:name=".MainHome.NavigationDrawer"
             android:label="@string/title_activity_navigation_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RegisterTeam">
-
-
+        <activity android:name=".RegisterTeam"
+            android:label="Team Details">
         </activity>
-        <activity android:name=".PlayerSignUp" />
-        <activity android:name=".RegisterPlayer" />
-        <activity android:name=".Staistics" />
-        <activity android:name=".TeamRequest" />
-        <activity android:name=".Tournament" />
-        <activity android:name=".OrganizeTournament" />
-
-
-        <activity android:name=".Signup" />
-        <activity android:name=".ForgetPassword" />
+        <activity android:name=".PlayerSignUp"
+            android:label="Player SignUp"/>
+        <activity android:name=".RegisterPlayer"
+            android:label="Register Player"/>
+        <activity android:name=".Staistics"
+            android:label="Statistics"/>
+        <activity android:name=".TeamRequest"
+            android:label="Team Requests"/>
+        <activity android:name=".Tournament"
+            android:label="Add Tournament"/>
+        <activity android:name=".OrganizeTournament"
+            />
+        <activity android:name=".Signup"
+            android:label="Sign Up"/>
+        <activity android:name=".ForgetPassword"
+            android:label="Forget Password"/>
     </application>
 
 </manifest>

@@ -151,7 +151,7 @@ public class UploadPhoto extends AppCompatActivity {
         //server
 
 
-        String url = "http://192.168.10.14/SportHub/api/PlayerInfo/";
+        String url = "http://192.168.10.3/SportHub/api/PlayerInfo/";
         StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
